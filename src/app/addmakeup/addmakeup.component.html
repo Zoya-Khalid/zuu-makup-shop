@@ -1,0 +1,34 @@
+<form class="ms-4" [formGroup]="makeupForm" (submit)="onSubmit()">
+  <div class="mb-3 mt-4">
+    <label for="id" class="form-label">Product Id</label>
+    <input type="text" class="form-control" formControlName="id" id="id" />
+    @if(makeupForm.get("id")?.hasError("required") &&
+    makeupForm.get("id")?.touched){
+    <div class="form-text text-danger">Id is required</div>
+    }
+  </div>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Product Name</label>
+    <input type="text" class="form-control" formControlName="name" id="name" />
+    @if(makeupForm.get("name")?.hasError("required") &&
+    makeupForm.get("name")?.touched){
+    <div class="form-text text-danger">name is required</div>
+    }
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea
+      class="form-control"
+      formControlName="description"
+      id="description"
+      rows="3"
+    ></textarea>
+    @if(makeupForm.get("description")?.hasError("required") &&
+    makeupForm.get("description")?.touched){
+    <div class="form-text text-danger">description is required</div>
+    }
+  </div>
+  <button type="submit" class="btn btn-primary">SAVE</button>
+</form>
